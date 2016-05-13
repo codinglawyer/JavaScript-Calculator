@@ -20,7 +20,7 @@ var states = {
   START: 1,
   //when the first number is added
   FIRST_ARG: 2,
-  //when the first number begins with dot(0.) or when it has a dot anywhere else
+  //when the first number begins with a dot (0.) or when it has a dot anywhere else
   FIRST_ARG_FLOAT: 3,
   //when the operator is added
   OP: 4,
@@ -28,13 +28,13 @@ var states = {
   SECOND_ARG: 5,
   //when the second number has a dot not at its beginning
   SEC_ARG_FLOAT: 6,
-  //when the second number begins with dot(0.)
+  //when the second number begins with a dot (0.)
   SEC_ARG_DOT: 7,
-  //when we get the result of the arithmetic operation
+  //when we get the result of the arithmetical operation
   EQ: 8
 }
 
-//default state of calculator
+//default state of the calculator
   $("#display").text(0);
 
 //object containing variables and functionality related to the calculator
@@ -72,7 +72,7 @@ var calc = {
             }
             if(key_class === kclass.OP){
                 this.op = key;
-                //store value of the disp in a acc1 variable in order to be able to store second number in the disp
+                //store a value of the disp in an acc1 variable in order to be able to store the second number in the disp
                 this.acc1 = this.disp;
                 this.state = states.OP;
             }
@@ -238,13 +238,13 @@ var calc = {
       this.disp = key;
       this.displayUpdate(this.disp);
   },
-  //dipsplay display var
+  //display the display var
   displayUpdate: function(dispText){
       $("#display").text(dispText);
   }
 }
 
-//when the number is clicked
+//when any number is clicked
 $(".digit").on("click", function(){
   calc.doStep(kclass.NUM, $(this).html());
 })
